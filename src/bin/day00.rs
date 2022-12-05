@@ -1,7 +1,4 @@
-use std::cmp::Reverse;
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::path::Path;
+use common::read_lines;
 
 macro_rules! parse_input {
     ($x:expr, $t:ident) => {
@@ -42,12 +39,4 @@ fn main() {
     } else {
         println!("{}", "An error occured!");
     }
-}
-
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
-where
-    P: AsRef<Path>,
-{
-    let file = File::open(filename)?;
-    Ok(io::BufReader::new(file).lines())
 }
